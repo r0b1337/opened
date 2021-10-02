@@ -77,6 +77,10 @@ NAN_MODULE_INIT(Init) {
   NAN_EXPORT(target, opened);
 }
 
+#if NODE_MAJOR_VERSION >= 10
+NAN_MODULE_WORKER_ENABLED(binding, Init)
+#else
 NODE_MODULE(binding, Init)
+#endif
 
 // S.D.G.
